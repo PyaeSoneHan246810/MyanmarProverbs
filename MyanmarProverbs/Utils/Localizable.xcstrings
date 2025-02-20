@@ -1,0 +1,235 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "© 2025 Pyae Sone Han. All rights reserved." : {
+      "shouldTranslate" : false
+    },
+    "About" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "အကြောင်း"
+          }
+        }
+      }
+    },
+    "About this app" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဤအက်ပ်အကြောင်း"
+          }
+        }
+      }
+    },
+    "About your device" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "သင့်စက်ပစ္စည်းအကြောင်း"
+          }
+        }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ထွက်မည်"
+          }
+        }
+      }
+    },
+    "Developed with ❤️ by Pyae Sone Han." : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ပြည့်စုံဟန်မှ ❤️များဖြင့် ရေးသားထားသည်"
+          }
+        }
+      }
+    },
+    "Empty Favorites" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "နှစ်သက်သော စကားပုံများ မရှိပါ"
+          }
+        }
+      }
+    },
+    "Empty Recent Proverbs" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မကြာသေးမီက စကားပုံများ မရှိပါ"
+          }
+        }
+      }
+    },
+    "Error has occurred!" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "တစ်ခုခု မှားယွင်းသွားပါသည်"
+          }
+        }
+      }
+    },
+    "Favorites" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "နှစ်သက်သော"
+          }
+        }
+      }
+    },
+    "Home" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မူလ"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဘာသာစကား"
+          }
+        }
+      }
+    },
+    "Library" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "အစုအစည်း"
+          }
+        }
+      }
+    },
+    "mmproverbs.pro" : {
+      "shouldTranslate" : false
+    },
+    "No Proverbs Found!" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "စကားပုံများ ရှာမတွေ့ပါ"
+          }
+        }
+      }
+    },
+    "Random Proverb" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ကျပန်းစကားပုံ"
+          }
+        }
+      }
+    },
+    "Recent" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မကြာသေးမီက"
+          }
+        }
+      }
+    },
+    "Search" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ရှာဖွေမည်"
+          }
+        }
+      }
+    },
+    "Search for the proverbs" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "စကားပုံများကို ရှာဖွေပါ"
+          }
+        }
+      }
+    },
+    "The Myanmar Proverbs App brings you a collection of timeless proverbs passed down through generations. These proverbs offer wisdom, guidance, and inspiration for everyday life. Whether you seek advice, motivation, or a moment of reflection, this app provides meaningful sayings at your fingertips" : {
+      "shouldTranslate" : false
+    },
+    "The proverbs featured in this app are sourced from Dr. Win Thein's website. You may visit the link below." : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဤအက်ပ်တွင်ပါရှိသော စကားပုံများသည် ဒေါက်တာဝင်းသိန်း၏ ဝက်ဘ်ဆိုဒ်မှ အရင်းအမြစ်ဖြစ်သည်။ အောက်ပါလင့်ခ်တွင် ဝင်ရောက်ကြည့်ရှုနိုင်ပါသည်။"
+          }
+        }
+      }
+    },
+    "Type your search query here..." : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "သင်ရှာဖွေလိုသောအရာကို ရိုက်ထည့်ပါ..."
+          }
+        }
+      }
+    },
+    "Unavailable!" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မရရှိနိုင်ပါ"
+          }
+        }
+      }
+    },
+    "Your favorite proverbs will appear here once you add some!" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "သင်နှစ်သက်သော စကားပုံများ ဤနေရာတွင် ပေါ်လာပါမည်။"
+          }
+        }
+      }
+    },
+    "Your recently viewed proverbs will appear here!" : {
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မကြာသေးမီက သင်ကြည့်ရှုခဲ့သော စကားပုံများသည် ဤနေရာတွင် ပေါ်လာပါမည်။"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
