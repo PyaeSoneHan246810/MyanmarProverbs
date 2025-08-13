@@ -1,5 +1,7 @@
 # Myanmar Proverbs iOS App
 
+<img width="240" height="240" alt="Image" src="https://github.com/user-attachments/assets/1fac6eae-aa19-4c23-90b9-9fadbd6ace88" />
+
 This iOS app, built with SwiftUI, loads data of Myanmar proverbs from a JSON file, allowing users to browse the collection of proverbs and bookmark favorite ones.
 
 ## Used Technologies
