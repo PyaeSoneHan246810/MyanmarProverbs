@@ -10,23 +10,14 @@ import SwiftData
 import SimpleToast
 
 struct ProverbsView: View {
-    // MARK: - ENVIRONMENT PROPERTIES
     @Environment(\.modelContext) private var modelContext
-    
-    // MARK: - QUERY PROPERTIES
     @Query private var favoriteProverbs: [FavoriteProverb]
     @Query private var recentProverbs: [RecentProverb]
-    
-    // MARK: - STATE PROPERTIES
     @State private var showtoast: Bool = false
     @State private var toastMessage: String?
     @State private var proverbsForDisplay: [Proverb] = []
-    
-    // MARK: - PROPERTIES
     let proverbs: [Proverb]
     var isForFavorites: Bool = false
-    
-    // MARK: - BODY
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16.0) {
@@ -77,17 +68,19 @@ struct ProverbsView: View {
         }
     }
     
-    // MARK: - FUNCTIONS
-    private func isFavorite(_ proverb: Proverb) -> Bool {
+}
+
+private extension ProverbsView {
+    func isFavorite(_ proverb: Proverb) -> Bool {
         favoriteProverbs.contains(where: { favProverb in
             favProverb.titleId == proverb.titleId && favProverb.proverbId == proverb.proverbId
         })
     }
-    private func saveFavoriteProverb(_ proverb: Proverb) {
+    func saveFavoriteProverb(_ proverb: Proverb) {
         let favoriteProverb = FavoriteProverb(proverb: proverb)
         modelContext.insert(favoriteProverb)
     }
-    private func removeFavoriteProverb(_ proverb: Proverb) {
+    func removeFavoriteProverb(_ proverb: Proverb) {
         guard let favoriteProverbToRemove = favoriteProverbs.first(where: { favProverb in
             favProverb.titleId == proverb.titleId && favProverb.proverbId == proverb.proverbId
         }) else {
@@ -95,7 +88,7 @@ struct ProverbsView: View {
         }
         modelContext.delete(favoriteProverbToRemove)
     }
-    private func copyToClipboard(_ proverb: Proverb) {
+    func copyToClipboard(_ proverb: Proverb) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = proverb.proverbName
         if let copiedProverbName = pasteboard.string, !showtoast {
@@ -103,7 +96,7 @@ struct ProverbsView: View {
             toastMessage = copiedProverbName
         }
     }
-    private func upsertRecentProverb(_ proverb: Proverb) {
+    func upsertRecentProverb(_ proverb: Proverb) {
         if let existingProverb = recentProverbs.first(where: { recProverb in
             recProverb.titleId == proverb.titleId && recProverb.proverbId == proverb.proverbId
         }) {
@@ -115,7 +108,6 @@ struct ProverbsView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         ProverbsView(

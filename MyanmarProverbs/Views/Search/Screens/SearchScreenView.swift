@@ -8,17 +8,12 @@
 import SwiftUI
 
 struct SearchScreenView: View {
-    // MARK: - STATE PROPERTIES
     @State private var searchResultProverbs: [Proverb] = []
     @State private var searchText: String = ""
     @State private var error: Error?
-    
-    // MARK: - COMPUTED PROPERTIES
     private var trimmedLowercasedSearchText: String {
         searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
     }
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if let error {
@@ -30,40 +25,6 @@ struct SearchScreenView: View {
                 }
             }
         }
-    }
-    
-    // MARK: - VIEW BUILDERS
-    @ViewBuilder
-    private var searchTextFieldView: some View {
-        TextField(
-            "Type your search query here...",
-            text: $searchText
-        )
-        .textFieldStyle(.roundedBorder)
-        .padding(.vertical, 4.0)
-        .padding(.horizontal, 16.0)
-        .onChange(of: trimmedLowercasedSearchText) {
-            searchProverbs()
-        }
-    }
-    @ViewBuilder
-    private var searchContentView: some View {
-        if trimmedLowercasedSearchText.isEmpty {
-            initialSearchContentView
-        } else if searchResultProverbs.isEmpty {
-            EmptyProverbsView()
-        } else {
-            ProverbsView(
-                proverbs: searchResultProverbs
-            )
-        }
-    }
-    @ViewBuilder
-    private var initialSearchContentView: some View {
-        ContentUnavailableView(
-            "Search for the proverbs",
-            systemImage: "text.page.badge.magnifyingglass"
-        )
     }
     
     // MARK: - FUNCTIONS
@@ -81,7 +42,39 @@ struct SearchScreenView: View {
     }
 }
 
-// MARK: - PREVIEW
+private extension SearchScreenView {
+    var searchTextFieldView: some View {
+        TextField(
+            "Type your search query here...",
+            text: $searchText
+        )
+        .textFieldStyle(.roundedBorder)
+        .padding(.vertical, 4.0)
+        .padding(.horizontal, 16.0)
+        .onChange(of: trimmedLowercasedSearchText) {
+            searchProverbs()
+        }
+    }
+    @ViewBuilder
+    var searchContentView: some View {
+        if trimmedLowercasedSearchText.isEmpty {
+            initialSearchContentView
+        } else if searchResultProverbs.isEmpty {
+            EmptyProverbsView()
+        } else {
+            ProverbsView(
+                proverbs: searchResultProverbs
+            )
+        }
+    }
+    var initialSearchContentView: some View {
+        ContentUnavailableView(
+            "Search for the proverbs",
+            systemImage: "text.page.badge.magnifyingglass"
+        )
+    }
+}
+
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         SearchScreenView()

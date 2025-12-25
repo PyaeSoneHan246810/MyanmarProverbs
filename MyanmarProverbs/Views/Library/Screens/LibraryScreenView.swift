@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct LibraryScreenView: View {
-    // MARK: - ENVIRONMENT PROPERTIES
     @Environment(\.colorScheme) private var colorScheme
-    
-    // MARK: - STATE PROPERTIES
     @State private var proverbsTitles: [ProverbsTitle] = []
     @State private var error: Error?
-    
-    // MARK: - COMPUTED PROPERTIES
     private var isLightMode: Bool {
         colorScheme == .light
     }
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if let error {
                 ErrorView(error: error)
             } else {
-                proverbsTitlesView()
+                proverbsTitlesView
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .title) {
+                Text("Library")
+                    .font(.headline)
             }
         }
         .onAppear {
@@ -38,10 +38,20 @@ struct LibraryScreenView: View {
             )
         }
     }
-    
-    // MARK: - VIEW BUILDERS
-    @ViewBuilder
-    private func proverbsTitlesView() -> some View {
+    private func getProverbsTitles() {
+        do {
+            let proverbsData: ProverbsData = try Bundle.main.decodeJsonFile("MyanmarProverbs")
+            proverbsTitles = proverbsData.proverbTitles
+        } catch {
+            if let error = error as? FileDecodingError {
+                self.error = error
+            }
+        }
+    }
+}
+
+private extension LibraryScreenView {
+    var proverbsTitlesView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(
                 columns: [
@@ -63,8 +73,7 @@ struct LibraryScreenView: View {
             .padding(16.0)
         }
     }
-    @ViewBuilder
-    private func proverbsTitleItemView(_ proverbsTitle: ProverbsTitle) -> some View {
+    func proverbsTitleItemView(_ proverbsTitle: ProverbsTitle) -> some View {
         RoundedRectangle(
             cornerRadius: 16.0
         )
@@ -82,24 +91,10 @@ struct LibraryScreenView: View {
                 .opacity(0.75)
         }
     }
-    
-    // MARK: - FUNCTIONS
-    private func getProverbsTitles() {
-        do {
-            let proverbsData: ProverbsData = try Bundle.main.decodeJsonFile("MyanmarProverbs")
-            proverbsTitles = proverbsData.proverbTitles
-        } catch {
-            if let error = error as? FileDecodingError {
-                self.error = error
-            }
-        }
-    }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         LibraryScreenView()
-            .navigationTitle("Library")
     }
 }

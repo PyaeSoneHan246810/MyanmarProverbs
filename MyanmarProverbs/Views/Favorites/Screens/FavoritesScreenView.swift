@@ -9,17 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct FavoritesScreenView: View {
-    // MARK: - QUERY PROPERTIES
     @Query private var favoriteProverbs: [FavoriteProverb]
-    
-    // MARK: - COMPUTED PROPERTIES
     private var favoriteProverbsForDisplay: [Proverb] {
         return favoriteProverbs.map { favProverb in
             Proverb.fromFavoriteProverb(favProverb)
         }.sorted(by: { $0.proverbName < $1.proverbName})
     }
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if favoriteProverbsForDisplay.isEmpty {
@@ -35,13 +30,18 @@ struct FavoritesScreenView: View {
                 )
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .title) {
+                Text("Favorites")
+                    .font(.headline)
+            }
+        }
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         FavoritesScreenView()
-            .navigationTitle("Favorites")
     }
 }

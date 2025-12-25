@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct EmptyProverbsView: View {
-    // MARK: - PROPERTIES
-    // MARK: - BODY
     var body: some View {
         ContentUnavailableView(
             "No Proverbs Found!",
@@ -18,7 +16,6 @@ struct EmptyProverbsView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     EmptyProverbsView()
 }

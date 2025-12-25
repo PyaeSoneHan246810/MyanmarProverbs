@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ErrorView: View {
-    // MARK: - PROPERTIES
     let error: Error
-    
-    // MARK: - BODY
     var body: some View {
         ContentUnavailableView(
             "Error has occurred!",
@@ -21,7 +18,6 @@ struct ErrorView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     ErrorView(
         error: FileDecodingError.decodingFailed

@@ -44,7 +44,7 @@
         }
       }
     },
-    "Developed with ❤️ by Pyae Sone Han." : {
+    "Developed with ❤️ by Pyae Sone Han" : {
       "localizations" : {
         "my" : {
           "stringUnit" : {
@@ -178,7 +178,14 @@
       }
     },
     "The Myanmar Proverbs App brings you a collection of timeless proverbs passed down through generations. These proverbs offer wisdom, guidance, and inspiration for everyday life. Whether you seek advice, motivation, or a moment of reflection, this app provides meaningful sayings at your fingertips" : {
-      "shouldTranslate" : false
+      "localizations" : {
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Myanmar Proverbs App သည် မျိုးဆက်တစ်ခုပြီးတစ်ခု လက်ဆင့်ကမ်းလာခဲ့သော စကားပုံများကို စုစည်းပေးထားပါသည်။ ဤစကားပုံများသည် နေ့စဉ်ဘဝအတွက် ဉာဏ်ပညာ၊ လမ်းညွှန်မှုနဲ့ လှုံ့ဆော်မှုများကို ပေးစွမ်းနိုင်ပါသည်။ အကြံဉာဏ်၊ လှုံ့ဆော်မှု ဒါမှမဟုတ် ဆင်ခြင်တွေးတောမှုတစ်ခုခုအတွက် အဓိပ္ပာယ်ရှိ‌သော စကားပုံများကို လွယ်ကူစွာ‌ရှာဖွေနိုင်ပါသည်။"
+          }
+        }
+      }
     },
     "The proverbs featured in this app are sourced from Dr. Win Thein's website. You may visit the link below." : {
       "localizations" : {
@@ -196,16 +203,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "သင်ရှာဖွေလိုသောအရာကို ရိုက်ထည့်ပါ..."
-          }
-        }
-      }
-    },
-    "Unavailable!" : {
-      "localizations" : {
-        "my" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "မရရှိနိုင်ပါ"
           }
         }
       }

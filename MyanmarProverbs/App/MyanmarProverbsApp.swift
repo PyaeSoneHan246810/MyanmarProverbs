@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct MyanmarProverbsApp: App {
-    // MARK: - BODY
+    @AppStorage("localeIdentifier") private var localeIdentifier = "en"
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabsScreenView()
         }
+        .environment(\.locale, Locale(identifier: localeIdentifier))
         .modelContainer(for: [FavoriteProverb.self, RecentProverb.self])
     }
 }

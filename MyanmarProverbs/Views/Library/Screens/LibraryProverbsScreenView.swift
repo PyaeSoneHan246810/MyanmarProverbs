@@ -9,14 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct LibraryProverbsScreenView: View {
-    // MARK: - STATE PROPERTIES
     @State private var proverbs: [Proverb] = []
     @State private var error: Error?
-    
-    // MARK: - PROPERTIES
     let proverbTitleId: Int
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if let error {
@@ -36,8 +31,6 @@ struct LibraryProverbsScreenView: View {
             getProverbsByTitleId()
         }
     }
-    
-    // MARK: - FUNCTIONS
     private func getProverbsByTitleId() {
         do {
             let proverbsData: ProverbsData = try Bundle.main.decodeJsonFile("MyanmarProverbs")
@@ -48,10 +41,8 @@ struct LibraryProverbsScreenView: View {
             }
         }
     }
-    
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         LibraryProverbsScreenView(

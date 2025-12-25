@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "Myanmar Proverbs App Light Icon.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Myanmar Proverbs App Dark Icon.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

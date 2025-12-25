@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ToastLabelView: View {
-    // MARK: - PROPERTIES
     let message: String
     let systemImage: String
     let toastColor: Color
-    // MARK: - BODY
     var body: some View {
         Label(
             message,
@@ -29,7 +27,6 @@ struct ToastLabelView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     ToastLabelView(
         message: "Copied",

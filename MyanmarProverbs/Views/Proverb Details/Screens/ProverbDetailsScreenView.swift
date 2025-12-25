@@ -10,25 +10,16 @@ import SwiftData
 import SimpleToast
 
 struct ProverbDetailsScreenView: View {
-    // MARK: - ENVIRONMENT PROPERTIES
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    
-    // MARK: - QUERY PROPERTIES
     @Query private var favoriteProverbs: [FavoriteProverb]
-    
-    // MARK: - STATE PROPERTIES
     @State private var selectedProverb: Proverb?
     @State private var error: Error?
     @State private var selection: Int = 0
     @State private var showToast: Bool = false
-    
-    // MARK: - PROPERTIES
     let proverbs: [Proverb]
     let proverbId: Int
     var isForFavorites: Bool = false
-    
-    // MARK: - COMPUTED PROPERTIES
     private var isNotFirstProverb: Bool {
         selection > 0
     }
@@ -43,8 +34,6 @@ struct ProverbDetailsScreenView: View {
             favProverb.titleId == selectedProverb.titleId && favProverb.proverbId == selectedProverb.proverbId
         })
     }
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if let error {
@@ -55,19 +44,19 @@ struct ProverbDetailsScreenView: View {
                     systemImage: "ellipsis"
                 )
             } else {
-                proverbsTabView()
+                proverbsTabView
             }
         }
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                backButtonView()
+                backButtonView
             }
             ToolbarItem(placement: .topBarTrailing) {
-                toggleFavoriteButtonView()
+                toggleFavoriteButtonView
             }
             ToolbarItem(placement: .topBarTrailing) {
-                copyToClipboardButtonView()
+                copyToClipboardButtonView
             }
         }
         .simpleToast(
@@ -93,10 +82,10 @@ struct ProverbDetailsScreenView: View {
             }
         }
     }
-    
-    // MARK: - VIEW BUILDERS
-    @ViewBuilder
-    private func proverbsTabView() -> some View {
+}
+
+private extension ProverbDetailsScreenView {
+    var proverbsTabView: some View {
         TabView(selection: $selection) {
             ForEach(Array(proverbs.enumerated()), id: \.element) { index, proverb in
                 proverbTabItemView(proverb)
@@ -130,8 +119,7 @@ struct ProverbDetailsScreenView: View {
             .padding(.horizontal, 20.0)
         }
     }
-    @ViewBuilder
-    private func proverbTabItemView(_ proverb: Proverb) -> some View {
+    func proverbTabItemView(_ proverb: Proverb) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 32.0) {
                 Text(proverb.proverbName)
@@ -151,67 +139,65 @@ struct ProverbDetailsScreenView: View {
             .padding(.vertical, 20.0)
         }
     }
-    @ViewBuilder
-    private func backButtonView() -> some View {
+    var backButtonView: some View {
         Button {
             dismiss()
         } label: {
             Label("Back", systemImage: "chevron.left")
-                .labelStyle(.titleAndIcon)
         }
         .buttonStyle(.borderless)
     }
-    @ViewBuilder
-    private func toggleFavoriteButtonView() -> some View {
+    var toggleFavoriteButtonView: some View {
         Button {
             isProverbFavorite ? removeFavoriteProverb() : saveFavoriteProverb()
         } label: {
             Image(systemName: isProverbFavorite ? "heart.fill" : "heart")
+                .foregroundStyle(isProverbFavorite ? Color.accent : Color.primary)
         }
     }
-    @ViewBuilder
-    private func copyToClipboardButtonView() -> some View {
+    var copyToClipboardButtonView: some View {
         Button {
             copyToClipboard()
         } label: {
             Image(systemName: "clipboard")
         }
     }
-    
-    // MARK: - FUNCTIONS
-    private func getSelectedProverb() {
+}
+
+private extension ProverbDetailsScreenView {
+    func getSelectedProverb() {
         selectedProverb = proverbs.first(where: {$0.proverbId == proverbId})
         if let selectedProverb {
             selection = proverbs.firstIndex(where: {$0.proverbId == selectedProverb.proverbId}) ?? 0
         }
     }
-    private func moveToPreviousProverb() {
+    func moveToPreviousProverb() {
         withAnimation {
             selection -= 1
             selectedProverb = proverbs[selection]
         }
     }
-    private func moveToNextProverb() {
+    func moveToNextProverb() {
         withAnimation {
             selection += 1
             selectedProverb = proverbs[selection]
         }
     }
-    private func copyToClipboard() {
+    func copyToClipboard() {
         let uiPasteboard = UIPasteboard.general
         uiPasteboard.string = selectedProverb?.proverbName
         if uiPasteboard.string != nil, !showToast {
             showToast = true
         }
     }
-    private func saveFavoriteProverb() {
+    func saveFavoriteProverb() {
         guard let proverb = selectedProverb else {
             return
         }
         let favoriteProverb = FavoriteProverb(proverb: proverb)
         modelContext.insert(favoriteProverb)
     }
-    private func removeFavoriteProverb() {
+    func removeFavoriteProverb() {
         guard let proverb = selectedProverb else {
             return
         }
@@ -224,7 +210,6 @@ struct ProverbDetailsScreenView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         ProverbDetailsScreenView(

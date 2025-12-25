@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct TabsScreenView: View {
-    // MARK: - PROPERTIES
-    // MARK: - BODY
     var body: some View {
         TabView {
             Tab(
@@ -18,7 +16,6 @@ struct TabsScreenView: View {
             ) {
                 NavigationStack {
                     HomeScreenView()
-                        .navigationTitle("Home")
                 }
             }
             Tab(
@@ -27,7 +24,6 @@ struct TabsScreenView: View {
             ) {
                 NavigationStack {
                     LibraryScreenView()
-                        .navigationTitle("Library")
                 }
             }
             Tab(
@@ -36,7 +32,6 @@ struct TabsScreenView: View {
             ) {
                 NavigationStack {
                     RecentScreenView()
-                        .navigationTitle("Recent")
                 }
             }
             Tab(
@@ -45,14 +40,12 @@ struct TabsScreenView: View {
             ) {
                 NavigationStack {
                     FavoritesScreenView()
-                        .navigationTitle("Favorites")
                 }
             }
         }
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     TabsScreenView()
 }

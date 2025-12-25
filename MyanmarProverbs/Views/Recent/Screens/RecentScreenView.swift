@@ -9,24 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct RecentScreenView: View {
-    // MARK: - ENVIRONMENT PROPERTIES
     @Environment(\.modelContext) private var modelContext
-    
-    // MARK: - QUERY PROPERTIES
     @Query(
         sort: \RecentProverb.viewedAt,
         order: .reverse
     )
     private var recentProverbs: [RecentProverb]
-    
-    // MARK: - PROPERTIES
     private var recentProverbsForDisplay: [Proverb] {
         return recentProverbs.map { recProverb in
             Proverb.fromRecentProverb(recProverb)
         }
     }
-    
-    // MARK: - BODY
     var body: some View {
         Group {
             if recentProverbsForDisplay.isEmpty {
@@ -41,12 +34,17 @@ struct RecentScreenView: View {
                 )
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .title) {
+                Text("Recent")
+                    .font(.headline)
+            }
+        }
         .onAppear {
             deleteOldRecentProverbs()
         }
     }
-    
-    // MARK: - FUNCTIONS
     private func deleteOldRecentProverbs() {
         let fiveDaysAgoDate = Calendar.current.date(byAdding: .day, value: -7, to: .now)
         guard let fiveDaysAgoDate else { return }
@@ -58,10 +56,8 @@ struct RecentScreenView: View {
     }
 }
 
-// MARK: - PREVIEW
 #Preview(traits: .sizeThatFitsLayout) {
     NavigationStack {
         RecentScreenView()
-            .navigationTitle("Recent")
     }
 }
