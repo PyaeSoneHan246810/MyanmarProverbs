@@ -196,6 +196,7 @@ private extension ProverbDetailsScreenView {
         }
         let favoriteProverb = FavoriteProverb(proverb: proverb)
         modelContext.insert(favoriteProverb)
+        try? modelContext.save()
     }
     func removeFavoriteProverb() {
         guard let proverb = selectedProverb else {
@@ -207,6 +208,7 @@ private extension ProverbDetailsScreenView {
             return
         }
         modelContext.delete(favoriteProverbToRemove)
+        try? modelContext.save()
     }
 }
 

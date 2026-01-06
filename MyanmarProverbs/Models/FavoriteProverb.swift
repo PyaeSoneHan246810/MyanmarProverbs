@@ -10,10 +10,10 @@ import SwiftData
 
 @Model
 class FavoriteProverb {
-    var titleId: Int
-    var proverbId: Int
-    var proverbName: String
-    var proverbDesp: String
+    var titleId: Int = 0
+    var proverbId: Int = 0
+    var proverbName: String = ""
+    var proverbDesp: String = ""
     
     init(titleId: Int, proverbId: Int, proverbName: String, proverbDesp: String) {
         self.titleId = titleId

@@ -79,6 +79,7 @@ private extension ProverbsView {
     func saveFavoriteProverb(_ proverb: Proverb) {
         let favoriteProverb = FavoriteProverb(proverb: proverb)
         modelContext.insert(favoriteProverb)
+        try? modelContext.save()
     }
     func removeFavoriteProverb(_ proverb: Proverb) {
         guard let favoriteProverbToRemove = favoriteProverbs.first(where: { favProverb in
@@ -87,6 +88,7 @@ private extension ProverbsView {
             return
         }
         modelContext.delete(favoriteProverbToRemove)
+        try? modelContext.save()
     }
     func copyToClipboard(_ proverb: Proverb) {
         let pasteboard = UIPasteboard.general

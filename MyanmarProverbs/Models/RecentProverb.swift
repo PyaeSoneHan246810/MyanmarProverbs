@@ -10,11 +10,11 @@ import SwiftData
 
 @Model
 class RecentProverb {
-    var titleId: Int
-    var proverbId: Int
-    var proverbName: String
-    var proverbDesp: String
-    var viewedAt: Date
+    var titleId: Int = 0
+    var proverbId: Int = 0
+    var proverbName: String = ""
+    var proverbDesp: String = ""
+    var viewedAt: Date = Date()
     
     init(titleId: Int, proverbId: Int, proverbName: String, proverbDesp: String, viewedAt: Date) {
         self.titleId = titleId

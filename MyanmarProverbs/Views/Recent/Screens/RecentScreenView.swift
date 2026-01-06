@@ -53,6 +53,7 @@ struct RecentScreenView: View {
                 modelContext.delete(recentProverb)
             }
         }
+        try? modelContext.save()
     }
 }
 

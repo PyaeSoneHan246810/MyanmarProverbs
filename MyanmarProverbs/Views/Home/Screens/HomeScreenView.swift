@@ -199,6 +199,7 @@ private extension HomeScreenView {
         guard let randomProverb else { return }
         let favoriteProverb = FavoriteProverb(proverb: randomProverb)
         modelContext.insert(favoriteProverb)
+        try? modelContext.save()
     }
     func removeFavoriteProverb() {
         guard let randomProverb else { return }
@@ -208,6 +209,7 @@ private extension HomeScreenView {
             return
         }
         modelContext.delete(favoriteProverbToRemove)
+        try? modelContext.save()
     }
     func getSelectedLanguage() {
         selectedLanguage = Language.allCases.first(where: { $0.localeIdentifier == localeIdentifier}) ?? .english
